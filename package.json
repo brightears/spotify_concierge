@@ -1,0 +1,20 @@
+{
+  "name": "spotify_concierge",
+  "version": "1.0.0",
+  "description": "## Overview **Spotify Concierge for Businesses** is an AI-powered playlist design tool built using [windsurf.ai](https://windsurf.ai) that enhances the music curation process for hospitality and retail businesses. The platform guides users through a chat-based experience to generate tailored Spotify playlists, which can later be imported into the Soundtrack Your Brand subscription for scheduling. Additionally, the system supports a redesign/seasonal update path for existing BMAsia clients with a dedicated login portal and internal workflow integration.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brightears/spotify_concierge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brightears/spotify_concierge/issues"
+  },
+  "homepage": "https://github.com/brightears/spotify_concierge#readme"
+}
