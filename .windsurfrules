@@ -1,0 +1,91 @@
+# Custom Instruction Rules for Spotify Concierge for Businesses
+
+## 1. Project Context
+- **Project Name:** Spotify Concierge for Businesses
+- **Purpose:**  
+  An AI-powered playlist design tool enabling hospitality and retail businesses (both BMAsia clients and external users) to generate tailored Spotify playlist previews through a chat-based flow. The tool also supports a redesign/seasonal update process for BMAsia clients via a secure client portal.
+- **Target Audience:**  
+  BMAsia internal team, BMAsia clients, and external prospective clients seeking premium music curation.
+
+## 2. General Guidelines
+- **Consistency:**  
+  All generated code, prompts, and user flows must align with the project blueprint detailed in the README.md.  
+- **Naming Conventions:**  
+  Use clear, descriptive names for variables, functions, and components (e.g., `ChatPlaylistBuilder`, `RedesignRequestForm`, `getSpotifyPlaylistPreview`).
+- **Modular Architecture:**  
+  Separate flows should be maintained:
+  - **New Playlist Request Flow:** Chat-based interaction for generating Spotify playlist previews.
+  - **Redesign/Seasonal Update Flow:** Secure client portal for BMAsia customers to view, update, or pre-schedule playlist changes.
+- **Documentation and Context:**  
+  Whenever referenced, always include or note the project README.md for further context. Use inline comments liberally to explain integration points (e.g., Spotify API usage, payment upgrade paths).
+
+## 3. Specific Instructions for Functional Areas
+
+### A. Chat-Based Playlist Builder (New Playlist Request)
+- **User Interaction Flow:**
+  - Ask for key inputs: Business Type, Target Audience, Desired Brand Mood, Time Slots, and Music Genre Preferences/Exclusions.
+  - Dynamically adapt follow-up questions based on responses.
+- **Output Generation:**
+  - Generate 6–10 Spotify playlist previews labeled by time slot (e.g., "Morning Vibes – Weekdays", "Weekend Energy – Friday/Saturday").
+  - Provide upgrade options:
+    - “Notify BMAsia” (for BMAsia clients) — triggers manual, handcrafted curation.
+    - “Paid Upgrade” (for non-clients) — integrates with a payment system (Stripe/PayPal) to extend the playlist (e.g., adding 200 curated tracks).
+
+### B. Redesign & Seasonal Updates (BMAsia Client Portal)
+- **Client Dashboard Requirements:**
+  - Secure login mechanism to access the dashboard.
+  - Display current playlists, history, and scheduled updates.
+- **Redesign Request Flow:**
+  - Allow users to select common update options (e.g., “Festive Refresh”, “Seasonal Update”, “Custom Redesign”).
+  - Include fields for details such as new vibe description and scheduled activation dates.
+  - Automatically notify BMAsia internal teams (via email or internal task tracker) upon submission.
+- **Automation:**
+  - Integrate automated reminders for pending requests and approaching scheduled update deadlines.
+
+### C. Integration & API Handling
+- **Spotify API Integration:**
+  - Use the proper endpoints to generate and retrieve playlist previews.
+  - Validate that output includes correct playlist links.
+- **Soundtrack Your Brand Integration (Optional):**
+  - Ensure that playlists can later be imported or linked into Soundtrack Your Brand.
+- **Error Handling:**
+  - Implement robust error handling for API calls and data submissions.
+  - Use clear notification messages for success (e.g., toast notifications) or failure scenarios.
+
+### D. Monetization & Upgrade Paths
+- **For External Users:**
+  - Provide a payment flow for the “Paid Upgrade” option.
+  - Clearly delineate the benefits of a premium, extended playlist version.
+- **For BMAsia Clients:**
+  - Ensure the “Notify BMAsia” option routes to internal workflows without additional charges.
+- **Pricing Guidelines:**
+  - Reference upgrade costs (e.g., $19–$59 per extended playlist) where applicable.
+
+### E. Testing & Quality Assurance
+- **Unit and Integration Testing:**
+  - Generate tests for key functions (e.g., playlist generation, API interactions).
+  - Use context from existing Makerkit or BMAsia testing guidelines.
+- **Documentation of Prompts:**
+  - Maintain a prompt.md (or development-prompts.md) to log and reference prompts used for major functionality.
+- **Version Control:**
+  - Keep a CHANGELOG.md updated with key changes and prompt iterations to help track context shifts.
+
+## 4. Additional Files to Include
+- **.env.example:**  
+  List all required environment variables (e.g., Spotify API keys) without exposing sensitive data.
+- **CONTRIBUTING.md:**  
+  Outline coding standards, contribution processes, and guidelines for updating Windsurf rules.
+- **ROADMAP.md:**  
+  Provide high-level project goals and planned future enhancements to ensure alignment between AI-generated code and long-term project objectives.
+
+## 5. Best Practices
+- **Iterative Development:**  
+  Focus on small, isolated tasks in each prompt to minimize context drift.
+- **Context Files & Rules:**  
+  Regularly update the .windsurfrules file to reflect changes in project requirements or coding standards.
+- **Clear Communication:**  
+  When additional context is needed or when a new prompt is issued, reference relevant sections of the README.md or related documentation.
+
+---
+
+*These custom instruction rules serve as the single source of truth for Windsurf AI when building and updating the Spotify Concierge for Businesses project. They are subject to iterative improvement as the project evolves.*
