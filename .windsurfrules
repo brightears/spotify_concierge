@@ -11,7 +11,7 @@
 - **Consistency:**  
   All generated code, prompts, and user flows must align with the project blueprint detailed in the README.md.  
 - **Naming Conventions:**  
-  Use clear, descriptive names for variables, functions, and components (e.g., `ChatPlaylistBuilder`, `RedesignRequestForm`, `getSpotifyPlaylistPreview`).
+  Use clear, descriptive names for variables, functions, and components (e.g., `ChatPlaylistBuilder`, `RedesignRequestForm`, `getSpotifyPlaylistPreviews`).
 - **Modular Architecture:**  
   Separate flows should be maintained:
   - **New Playlist Request Flow:** Chat-based interaction for generating Spotify playlist previews.
