@@ -57,28 +57,14 @@ Before you begin, ensure you have the following installed on your system:
 
 ## Running the Project
 
-1. **Start the Development Server:**
-   Run the following command in the project root:
-   ```bash
-   npm start
-   ```
-   This will launch the application on the port defined in your `.env` file (default is 3000).
+At the moment, the project does not include automated `start` or `test` scripts
+in `package.json`. The `npm start` and `npm test` commands referenced in earlier
+instructions are placeholders. Once a development server and test suite are
+implemented, this section will be updated with the proper commands.
 
-2. **Access the Application:**
-   Open your web browser and navigate to:
-   ```
-   http://localhost:3000
-   ```
-3. **Development Workflow:**
-   - **Coding:**
-     Use Windsurf to interactively build and refine project features through our chat-based interface.
-   - **Testing:**
-     Run tests (if configured) with:
-     ```bash
-     npm test
-     ```
-   - **Logs:**
-     Check the terminal for any error messages or console logs for troubleshooting.
+In the meantime, you can explore the source code and run any tooling or server
+of your choice manually. Check the terminal for logs and errors while
+developing.
 
 ---
 
