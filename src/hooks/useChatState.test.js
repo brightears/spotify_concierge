@@ -21,6 +21,10 @@ describe('useChatState hook', () => {
     expect(result.current.input).toBe('');
     expect(result.current.showReview).toBe(false);
     expect(result.current.playlistPreviews).toEqual([]);
+    expect(result.current.showPreviews).toBe(false);
+    expect(result.current.loadingPreviews).toBe(false);
+    expect(result.current.previewError).toBe(null);
+    expect(result.current.userType).toBe('BMAsia Client');
     /*
       This test checks that the hook uses default values if nothing is saved,
       ensuring a predictable experience for first-time users.
@@ -60,6 +64,10 @@ describe('useChatState hook', () => {
       result.current.setInput('chill');
       result.current.setShowReview(true);
       result.current.setPlaylistPreviews([{ label: 'Evening Energy', link: '#' }]);
+      result.current.setShowPreviews(true); // should not persist
+      result.current.setLoadingPreviews(true); // should not persist
+      result.current.setPreviewError('oops'); // should not persist
+      result.current.setUserType('External User'); // optional to persist
     });
     // Check that localStorage was updated with new state
     const saved = JSON.parse(localStorage.getItem('playlistBuilderState'));
@@ -68,6 +76,12 @@ describe('useChatState hook', () => {
     expect(saved.input).toBe('chill');
     expect(saved.showReview).toBe(true);
     expect(saved.playlistPreviews).toEqual([{ label: 'Evening Energy', link: '#' }]);
+    // Transient state should not be saved
+    expect(saved.showPreviews).toBeUndefined();
+    expect(saved.loadingPreviews).toBeUndefined();
+    expect(saved.previewError).toBeUndefined();
+    // User type isn't persisted by default
+    expect(saved.userType).toBeUndefined();
     /*
       This test checks that any progress is saved as state changes,
       so user progress isn't lost if the page is refreshed.
