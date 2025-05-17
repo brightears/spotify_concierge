@@ -14,7 +14,12 @@ export function useChatState() {
     step: 0,
     input: '',
     showReview: false,
-    playlistPreviews: []
+    playlistPreviews: [],
+    // Additional UI state that isn't persisted to localStorage by default
+    showPreviews: false,
+    loadingPreviews: false,
+    previewError: null,
+    userType: 'BMAsia Client'
   };
 
   // Initialize state variables
@@ -23,6 +28,10 @@ export function useChatState() {
   const [input, setInput] = useState(defaultState.input);
   const [showReview, setShowReview] = useState(defaultState.showReview);
   const [playlistPreviews, setPlaylistPreviews] = useState(defaultState.playlistPreviews);
+  const [showPreviews, setShowPreviews] = useState(defaultState.showPreviews);
+  const [loadingPreviews, setLoadingPreviews] = useState(defaultState.loadingPreviews);
+  const [previewError, setPreviewError] = useState(defaultState.previewError);
+  const [userType, setUserType] = useState(defaultState.userType);
 
   // On mount, attempt to load state from localStorage
   useEffect(() => {
@@ -35,6 +44,10 @@ export function useChatState() {
         if (typeof parsed.input === 'string') setInput(parsed.input);
         if (typeof parsed.showReview === 'boolean') setShowReview(parsed.showReview);
         if (Array.isArray(parsed.playlistPreviews)) setPlaylistPreviews(parsed.playlistPreviews);
+        if (typeof parsed.showPreviews === 'boolean') setShowPreviews(parsed.showPreviews);
+        if (typeof parsed.loadingPreviews === 'boolean') setLoadingPreviews(parsed.loadingPreviews);
+        if (typeof parsed.previewError === 'string' || parsed.previewError === null) setPreviewError(parsed.previewError);
+        if (typeof parsed.userType === 'string') setUserType(parsed.userType);
       } catch (e) {
         // If parsing fails, ignore and use defaults
         console.error('Failed to parse saved chat state:', e);
@@ -72,6 +85,10 @@ export function useChatState() {
     step, setStep,
     input, setInput,
     showReview, setShowReview,
-    playlistPreviews, setPlaylistPreviews
+    playlistPreviews, setPlaylistPreviews,
+    showPreviews, setShowPreviews,
+    loadingPreviews, setLoadingPreviews,
+    previewError, setPreviewError,
+    userType, setUserType
   };
 }
