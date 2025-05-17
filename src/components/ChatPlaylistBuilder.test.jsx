@@ -160,10 +160,10 @@ describe('Review/Confirmation Screen', () => {
       { label: 'Mock Playlist 1', link: '#' },
       { label: 'Mock Playlist 2', link: '#' }
     ];
-    // Spy on the API function
-    const api = require('./ChatPlaylistBuilder');
+    // Spy on the Spotify API module
+    const spotifyApi = require('../api/spotify');
     // Mock getSpotifyPlaylistPreviews to resolve with mockPreviews
-    jest.spyOn(api, 'getSpotifyPlaylistPreviews').mockImplementation(() => Promise.resolve(mockPreviews));
+    jest.spyOn(spotifyApi, 'getSpotifyPlaylistPreviews').mockImplementation(() => Promise.resolve(mockPreviews));
 
     // Simulate saved state: all questions answered, review is visible
     const answers = {
